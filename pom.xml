@@ -3,7 +3,7 @@
 	<groupId>com.javawebtutor</groupId>
 	<artifactId>LoginWebApp</artifactId>
 	<packaging>war</packaging>
-	<version>1.45-SNAPSHOT</version>
+	<version>1.44</version>
 	<name>${project.artifactId}</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
@@ -48,7 +48,7 @@
          <connection>scm:git:https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Saravananmoorthy/LoginWebApp.git</connection>
 	 <url>http://github.com/Saravananmoorthy/LoginWebApp</url>
         <developerConnection>scm:git:https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Saravananmoorthy/LoginWebApp.git</developerConnection>
-     <tag>v1.43</tag>
+     <tag>v1.44</tag>
   </scm>
  
 </project>

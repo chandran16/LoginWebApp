@@ -3,7 +3,7 @@
 	<groupId>com.javawebtutor</groupId>
 	<artifactId>LoginWebApp</artifactId>
 	<packaging>war</packaging>
-	<version>1.44</version>
+	<version>1.44-SNAPSHOT</version>
 	<name>${project.artifactId}</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>

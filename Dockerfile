@@ -10,7 +10,7 @@ ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOM
 RUN set -x \
     && wget $TOMCAT_TGZ_URL/apache-tomcat-$TOMCAT_VERSION.tar.gz \
     && tar -xvf apache-tomcat-$TOMCAT_VERSION.tar.gz --strip-components=1
-ADD ./LoginWebApp.war $CATALINA_HOME/webapps/
+ADD ./target/LoginWebApp.war $CATALINA_HOME/webapps/
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
 ~                                   

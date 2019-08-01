@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Git - Checkout') {
             steps{
-                git branch: 'dockersetup', credentialsId: '', url: 'git@github.com/Saravananmoorthy/LoginWebApp.git'
+                git branch: 'dockersetup', credentialsId: '', url: 'git@https://github.com/Saravananmoorthy/LoginWebApp.git'
             }
        }
        stage('Build') {

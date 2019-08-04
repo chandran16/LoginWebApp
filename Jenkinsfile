@@ -1,4 +1,9 @@
 pipeline{
+       environment {
+    registry = "saravananmoorthy/dockerdemo"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+  }
     agent any
     stages{
         stage('Git - Checkout') {
@@ -11,12 +16,21 @@ pipeline{
                 sh "mvn clean install"
             }
         }
-        stage('Build and Push Docker Image') {
-            steps{
-                sh "whoami"
-                sh "sudo docker build  $WORKSPACE/. -t saravananmoorthy/dockerdemo:${BUILD_NUMBER}"
-                sh "sudo docker push saravananmoorthy/dockerdemo:${BUILD_NUMBER}"
-            }
+         stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
 }
 }

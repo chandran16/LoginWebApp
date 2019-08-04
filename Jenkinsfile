@@ -14,7 +14,7 @@ pipeline{
         stage('Build and Push Docker Image') {
             steps{
                 sh "whoami"
-                sh "docker build  $WORKSPACE/. -t saravananmoorthy/dockerdemo:${BUILD_NUMBER} ."
+                sh "docker build  $WORKSPACE/. -t saravananmoorthy/dockerdemo:${BUILD_NUMBER}"
                 sh "docker push saravananmoorthy/dockerdemo:${BUILD_NUMBER}"
             }
         }

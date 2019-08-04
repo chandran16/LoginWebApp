@@ -19,15 +19,17 @@ pipeline{
          stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          sh "sudo docker build  $WORKSPACE/. -t saravananmoorthy/dockerdemo:${BUILD_NUMBER}"
         }
       }
     }
     stage('Deploy Image') {
       steps{
         script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
+          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+          sh "sudo docker login --password=${PASSWORD} --username=${USERNAME} dockerhub.io"
+          sh "sudo docker push saravananmoorthy/dockerdemo:${BUILD_NUMBER}"
+           
           }
         }
       }

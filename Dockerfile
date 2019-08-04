@@ -1,4 +1,4 @@
-FROM java:8-jre
+FROM java:openjdk-8-jre
 FROM buildpack-deps:jessie
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
@@ -13,5 +13,4 @@ RUN set -x \
     && tar -xvf apache-tomcat-$TOMCAT_VERSION.tar.gz --strip-components=1
 ADD ./target/LoginWebApp.war $CATALINA_HOME/webapps/
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
-~                                 
+CMD ["catalina.sh", "run"]                               

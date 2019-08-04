@@ -27,7 +27,7 @@ pipeline{
       steps{
         script {
           withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-          sh "sudo docker login --password=${PASSWORD} --username=${USERNAME} dockerhub.io"
+          sh "sudo docker login --password=${PASSWORD} --username=${USERNAME} docker.io"
           sh "sudo docker push saravananmoorthy/dockerdemo:${BUILD_NUMBER}"
            
           }

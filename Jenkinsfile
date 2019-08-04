@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Build and Push Docker Image') {
             steps{
-                sh "sudo docker build --build-arg JAR_FILE_PATH=$WORKSPACE/target/LoginWebApp.jar $WORKSPACE/Dockerfile -t https://cloud.docker.com/repository/registry-1.docker.io/saravananmoorthy/dockerdemo:${BUILD_NUMBER} ."
+                sh "sudo docker build --build-arg JAR_FILE_PATH=$WORKSPACE/target/LoginWebApp.war $WORKSPACE/. -t https://cloud.docker.com/repository/registry-1.docker.io/saravananmoorthy/dockerdemo:${BUILD_NUMBER} ."
                 sh "sudo docker push https://cloud.docker.com/repository/registry-1.docker.io/saravananmoorthy/dockerdemo:${BUILD_NUMBER}"
             }
         }

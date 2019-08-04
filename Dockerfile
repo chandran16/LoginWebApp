@@ -13,7 +13,5 @@ RUN set -x \
     && tar -xvf apache-tomcat-$TOMCAT_VERSION.tar.gz --strip-components=1
 COPY ${JAR_FILE_PATH} $CATALINA_HOME/webapps/
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
-~                                   
-~                                       
+CMD ["catalina.sh", "run"]                                    
 
